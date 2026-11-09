@@ -9,12 +9,7 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    # If your solution is in a subfolder of the repo, uncomment these lines
-    # and set the folder name:
-    # defaults:
-    #   run:
-    #     working-directory: C:\Users\L3TI\OneDrive\Documents./RaceDay
-
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,8 +22,7 @@ jobs:
       - name: Restore
         run: dotnet restore
 
-      - name: Build API
-        run: dotnet build RaceDay.Api/RaceDay.Api.csproj --no-restore --configuration Release
+      
 
       - name: Build MVC project
         run: dotnet build RaceDay.Web/RaceDay.Web.csproj --no-restore --configuration Release

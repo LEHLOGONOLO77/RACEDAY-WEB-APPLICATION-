@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\RaceDay",
+    "\\RaceDay\\RaceDay.Api",
+    "\\RaceDay\\RaceDay.Api\\Controllers",
+    "\\RaceDay\\RaceDay.Api\\Dtos",
+    "\\RaceDay\\RaceDay.Api\\Extensions",
+    "\\RaceDay\\RaceDay.Web",
+    "\\RaceDay\\RaceDay.Web\\Controllers",
+    "\\RaceDay\\RaceDay.Web\\Filters",
+    "\\RaceDay\\RaceDay.Web\\Services"
+  ],
+  "SelectedNode": "\\RaceDay\\RaceDay.Web\\Filters\\SessionAuthAttribute.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,231 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Web\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Data\\RaceDayDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Api\\Data\\RaceDayDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\10.0.401\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\Services\\ApiClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Web\\Services\\ApiClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Services\\BlobStorageService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Api\\Services\\BlobStorageService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\appsettings.Development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Web\\appsettings.Development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Web\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\OneDrive\\Documents\\RaceDay\\RaceDay\\RaceDay.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Models\\Event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Api\\Models\\Event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RaceDay\\RaceDay.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\Program.cs",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Web\\Program.cs",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\Program.cs",
+              "RelativeToolTip": "RaceDay\\RaceDay.Web\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T11:20:25.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\appsettings.json",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Web\\appsettings.json",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\appsettings.json",
+              "RelativeToolTip": "RaceDay\\RaceDay.Web\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-09T11:00:24.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\appsettings.json",
+              "RelativeToolTip": "RaceDay\\RaceDay.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAADaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-09T09:00:34.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Microsoft.PackageDependencyResolution.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\10.0.401\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\dotnet\\sdk\\10.0.401\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\10.0.401\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\dotnet\\sdk\\10.0.401\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ViewState": "AgIAAPUAAAAAAAAAAAAswP4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-11-09T08:38:33.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\Services\\ApiClient.cs",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Web\\Services\\ApiClient.cs",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\Services\\ApiClient.cs",
+              "RelativeToolTip": "RaceDay\\RaceDay.Web\\Services\\ApiClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T08:32:41.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Web\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\appsettings.Development.json",
+              "RelativeToolTip": "RaceDay\\RaceDay.Web\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-09T08:23:21.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\Dockerfile",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Web\\Dockerfile",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Web\\Dockerfile",
+              "RelativeToolTip": "RaceDay\\RaceDay.Web\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-11-09T08:22:35.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RaceDayDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Data\\RaceDayDbContext.cs",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Api\\Data\\RaceDayDbContext.cs",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Data\\RaceDayDbContext.cs",
+              "RelativeToolTip": "RaceDay\\RaceDay.Api\\Data\\RaceDayDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T08:21:42.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\L3TI\\OneDrive\\Documents\\RaceDay\\RaceDay\\RaceDay.Api\\Program.cs",
+              "RelativeDocumentMoniker": "..\\..\\OneDrive\\Documents\\RaceDay\\RaceDay\\RaceDay.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\L3TI\\OneDrive\\Documents\\RaceDay\\RaceDay\\RaceDay.Api\\Program.cs",
+              "RelativeToolTip": "..\\..\\OneDrive\\Documents\\RaceDay\\RaceDay\\RaceDay.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T07:08:07.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Models\\Event.cs",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Api\\Models\\Event.cs",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Models\\Event.cs",
+              "RelativeToolTip": "RaceDay\\RaceDay.Api\\Models\\Event.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T05:59:58.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BlobStorageService.cs",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Services\\BlobStorageService.cs",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Api\\Services\\BlobStorageService.cs",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Services\\BlobStorageService.cs",
+              "RelativeToolTip": "RaceDay\\RaceDay.Api\\Services\\BlobStorageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T05:59:25.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Program.cs",
+              "RelativeDocumentMoniker": "RaceDay\\RaceDay.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\L3TI\\Downloads\\RaceDay_Part3\\RaceDay\\RaceDay.Api\\Program.cs",
+              "RelativeToolTip": "RaceDay\\RaceDay.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-09T05:58:41.984Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

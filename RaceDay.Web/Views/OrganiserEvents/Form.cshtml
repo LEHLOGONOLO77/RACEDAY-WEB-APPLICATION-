@@ -1,0 +1,60 @@
+@model EventFormVm
+@{
+    var editing = Model.Id > 0;
+    ViewData["Title"] = editing ? "Edit event" : "New event";
+}
+
+<a class="back" asp-action="Index">← Events</a>
+<div class="page-head"><div><h1>@(editing ? "Edit event" : "New event")</h1></div></div>
+
+<form method="post" enctype="multipart/form-data" novalidate style="max-width:720px">
+    <div asp-validation-summary="ModelOnly" class="rd-alert rd-alert-err"></div>
+    <input type="hidden" asp-for="Id" />
+
+    <div class="field"><label asp-for="Name"></label><input asp-for="Name" class="form-control" /><span asp-validation-for="Name" class="field-err"></span></div>
+    <div class="field"><label asp-for="Description"></label><textarea asp-for="Description" rows="5" class="form-control"></textarea><span asp-validation-for="Description" class="field-err"></span></div>
+
+    <div class="row g-3">
+        <div class="col-md-6 field">
+            <label asp-for="EventDate"></label>
+            <input asp-for="EventDate" type="datetime-local" asp-format="{0:yyyy-MM-ddTHH:mm}" class="form-control" />
+            <span asp-validation-for="EventDate" class="field-err"></span>
+        </div>
+        <div class="col-md-6 field"><label asp-for="Location"></label><input asp-for="Location" class="form-control" /><span asp-validation-for="Location" class="field-err"></span></div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-md-4 field">
+            <label asp-for="Distance"></label>
+            <div class="input-group"><input asp-for="Distance" type="number" step="0.01" min="0.1" class="form-control" /><span class="input-group-text">km</span></div>
+            <span asp-validation-for="Distance" class="field-err"></span>
+        </div>
+        <div class="col-md-4 field">
+            <label asp-for="EventType"></label>
+            <select asp-for="EventType" class="form-select" asp-items="@(new SelectList(Lookups.EventTypes))"></select>
+            <span asp-validation-for="EventType" class="field-err"></span>
+        </div>
+        <div class="col-md-4 field">
+            <label asp-for="Status"></label>
+            <select asp-for="Status" class="form-select" asp-items="@(new SelectList(Lookups.EventStatuses))"></select>
+            <span asp-validation-for="Status" class="field-err"></span>
+            <span class="muted small">Participants can only enrol when the status is Open.</span>
+        </div>
+    </div>
+
+    <div class="field">
+        <label asp-for="Banner"></label>
+        @if (!string.IsNullOrEmpty(Model.BannerUrl))
+        {
+            <img src="@Model.BannerUrl" alt="Current banner" class="mb-2" style="max-width:280px;border-radius:8px;display:block" />
+        }
+        <input asp-for="Banner" type="file" class="form-control" accept="image/jpeg,image/png,image/webp" />
+        <span asp-validation-for="Banner" class="field-err"></span>
+        <span class="muted small">JPG, PNG or WebP, up to 5 MB. @(editing ? "Leave empty to keep the current banner." : "")</span>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button class="btn btn-rd">@(editing ? "Save changes" : "Create event")</button>
+        <a class="btn btn-line" asp-action="Index">Cancel</a>
+    </div>
+</form>

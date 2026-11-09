@@ -1,0 +1,86 @@
+@model EventDetailsVm
+@{
+    var ev = Model.Event;
+    var user = Context.Session.GetUser();
+    var open = ev.Status == "Open";
+    ViewData["Title"] = ev.Name;
+}
+
+<a class="back" asp-controller="Home" asp-action="Index">← All events</a>
+
+@if (!string.IsNullOrEmpty(ev.BannerUrl))
+{
+    <div class="detail-banner"><img src="@ev.BannerUrl" alt="Banner for @ev.Name" /></div>
+}
+else
+{
+    <div class="detail-banner empty"><span>@ev.EventType</span></div>
+}
+
+<div class="page-head">
+    <div>
+        <h1>@ev.Name</h1>
+        <p class="muted">@ev.Location</p>
+    </div>
+    <partial name="_Status" model="ev.Status" />
+</div>
+
+<div class="facts">
+    <div class="fact"><small>Date</small><strong>@Format.DateTimeLong(ev.EventDate)</strong></div>
+    <div class="fact"><small>Distance</small><strong>@Format.Km(ev.Distance)</strong></div>
+    <div class="fact"><small>Type</small><strong>@ev.EventType</strong></div>
+    <div class="fact"><small>Location</small><strong>@ev.Location</strong></div>
+</div>
+
+<p class="prose">@ev.Description</p>
+
+<h2>Categories</h2>
+@if (Model.Categories.Count == 0)
+{
+    <div class="empty-inline">The organiser hasn't added categories yet.</div>
+}
+else if (user is { IsParticipant: true })
+{
+    <form asp-controller="Events" asp-action="Enrol" method="post">
+        <input type="hidden" name="eventId" value="@ev.Id" />
+        <div class="cat-list">
+            @foreach (var c in Model.Categories)
+            {
+                var enrolled = Model.EnrolledCategoryIds.Contains(c.Id);
+                <label class="cat @((enrolled || !open) ? "disabled" : "")">
+                    <input type="radio" name="categoryId" value="@c.Id" disabled="@(enrolled || !open)" />
+                    <span class="grow"><strong>@c.CategoryName</strong><span class="muted small">@Format.Km(c.Distance)</span></span>
+                    @if (enrolled) { <span class="status status-green">Enrolled</span> }
+                    <strong>@Format.Money(c.EntryFee)</strong>
+                </label>
+            }
+        </div>
+        @if (open)
+        {
+            <button class="btn btn-rd mt-3">Enrol now</button>
+        }
+        else
+        {
+            <p class="muted mt-3">Enrolment is closed for this event.</p>
+        }
+    </form>
+}
+else
+{
+    <div class="cat-list">
+        @foreach (var c in Model.Categories)
+        {
+            <div class="cat" style="cursor:default">
+                <span class="grow"><strong>@c.CategoryName</strong><span class="muted small">@Format.Km(c.Distance)</span></span>
+                <strong>@Format.Money(c.EntryFee)</strong>
+            </div>
+        }
+    </div>
+    @if (user is null)
+    {
+        <p class="mt-3">
+            <a class="btn btn-rd" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.Path">Log in to enrol</a>
+            <span class="muted ms-2">No account? <a asp-controller="Account" asp-action="Register">Sign up</a></span>
+        </p>
+    }
+}

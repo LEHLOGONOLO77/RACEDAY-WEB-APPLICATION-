@@ -1,0 +1,55 @@
+@model CategoriesVm
+@{ ViewData["Title"] = "Categories"; var eventId = Model.Event.Id; }
+
+<a class="back" asp-controller="OrganiserEvents" asp-action="Index">← Events</a>
+<div class="page-head">
+    <div><h1>Categories</h1><p class="muted">@Model.Event.Name · @Format.Date(Model.Event.EventDate)</p></div>
+    <div class="d-flex gap-2">
+        <a class="btn btn-line btn-sm" asp-controller="OrganiserEnrolments" asp-action="Index" asp-route-eventId="@eventId">Enrolments</a>
+        <a class="btn btn-line btn-sm" asp-controller="OrganiserResults" asp-action="Index" asp-route-eventId="@eventId">Results</a>
+    </div>
+</div>
+
+<h2 style="margin-top:0">Add a category</h2>
+<form asp-action="Add" asp-route-eventId="@eventId" method="post" class="filters" style="grid-template-columns: 2fr 1fr 1fr auto">
+    <div class="field"><label for="n-name">Name</label><input id="n-name" name="CategoryName" class="form-control" placeholder="e.g. 10 km, Under 20, Masters" required maxlength="80" /></div>
+    <div class="field"><label for="n-dist">Distance (km)</label><input id="n-dist" name="Distance" type="number" step="0.01" min="0.1" class="form-control" required /></div>
+    <div class="field"><label for="n-fee">Entry fee (R)</label><input id="n-fee" name="EntryFee" type="number" step="0.01" min="0" value="0" class="form-control" required /></div>
+    <button class="btn btn-rd">Add</button>
+</form>
+
+<h2>Current categories</h2>
+@if (Model.Categories.Count == 0)
+{
+    <div class="empty-inline">No categories yet. Participants need at least one to enrol.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="rd-table">
+            <thead><tr><th>Name</th><th>Distance (km)</th><th>Entry fee (R)</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var c in Model.Categories)
+                {
+                    var formId = $"cat-{c.Id}";
+                    <tr>
+                        <td>
+                            <form id="@formId" asp-action="Save" asp-route-eventId="@eventId" asp-route-id="@c.Id" method="post"></form>
+                            <input form="@formId" name="CategoryName" value="@c.CategoryName" class="form-control inline-input" required maxlength="80" aria-label="Category name" />
+                        </td>
+                        <td><input form="@formId" name="Distance" type="number" step="0.01" min="0.1" value="@c.Distance.ToString("0.##")" class="form-control inline-input w-sm" required aria-label="Distance" /></td>
+                        <td><input form="@formId" name="EntryFee" type="number" step="0.01" min="0" value="@c.EntryFee.ToString("0.00")" class="form-control inline-input w-sm" required aria-label="Entry fee" /></td>
+                        <td>
+                            <div class="actions">
+                                <button form="@formId" class="btn btn-line btn-sm">Save</button>
+                                <form asp-action="Delete" asp-route-eventId="@eventId" asp-route-id="@c.Id" method="post" data-confirm="Remove category '@c.CategoryName'?">
+                                    <button class="btn btn-danger-line btn-sm">Remove</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,12 @@
+@if (TempData["Success"] is string ok)
+{
+    <div class="rd-alert rd-alert-ok" role="status">@ok</div>
+}
+@if (TempData["Error"] is string err)
+{
+    <div class="rd-alert rd-alert-err" role="alert">@err</div>
+}
+@if (ViewBag.LoadError is string loadError)
+{
+    <div class="rd-alert rd-alert-err" role="alert">@loadError</div>
+}

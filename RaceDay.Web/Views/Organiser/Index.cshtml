@@ -1,0 +1,67 @@
+@model DashboardVm
+@{ ViewData["Title"] = "Dashboard"; }
+
+<div class="page-head">
+    <div>
+        <h1>Dashboard</h1>
+        <p class="muted">Your events at a glance.</p>
+    </div>
+    <a class="btn btn-rd" asp-controller="OrganiserEvents" asp-action="Create">New event</a>
+</div>
+
+<div class="stats">
+    <div class="stat"><strong>@Model.Rows.Count</strong><small>Events</small></div>
+    <div class="stat"><strong class="accent">@Model.TotalEnrolments</strong><small>Total enrolments</small></div>
+    <div class="stat"><strong>@Model.Upcoming.Count</strong><small>Coming up</small></div>
+</div>
+
+<h2>Upcoming</h2>
+@if (Model.Upcoming.Count == 0)
+{
+    <div class="empty-inline">No upcoming events. Create one to get started.</div>
+}
+else
+{
+    <div class="upcoming">
+        @foreach (var row in Model.Upcoming)
+        {
+            <a asp-controller="OrganiserEnrolments" asp-action="Index" asp-route-eventId="@row.Event.Id">
+                <div class="date"><b>@row.Event.EventDate.Day</b><small>@row.Event.EventDate.ToString("MMM")</small></div>
+                <div class="grow"><strong>@row.Event.Name</strong><div class="muted small">@row.Event.Location</div></div>
+                <span class="muted small">@row.Enrolments enrolled</span>
+                <partial name="_Status" model="row.Event.Status" />
+            </a>
+        }
+    </div>
+}
+
+<h2>All events</h2>
+@if (Model.Rows.Count == 0)
+{
+    <div class="empty-inline">You haven't created any events yet.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="rd-table">
+            <thead><tr><th>Event</th><th>Date</th><th>Status</th><th class="num">Enrolments</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var row in Model.Rows)
+                {
+                    <tr>
+                        <td class="name-cell">@row.Event.Name</td>
+                        <td>@Format.Date(row.Event.EventDate)</td>
+                        <td><partial name="_Status" model="row.Event.Status" /></td>
+                        <td class="num">@row.Enrolments</td>
+                        <td>
+                            <div class="actions">
+                                <a class="btn btn-line btn-sm" asp-controller="OrganiserEnrolments" asp-action="Index" asp-route-eventId="@row.Event.Id">Enrolments</a>
+                                <a class="btn btn-line btn-sm" asp-controller="OrganiserResults" asp-action="Index" asp-route-eventId="@row.Event.Id">Results</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

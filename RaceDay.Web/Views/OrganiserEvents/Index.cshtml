@@ -1,0 +1,47 @@
+@model List<EventModel>
+@{ ViewData["Title"] = "Events"; }
+
+<div class="page-head">
+    <div><h1>Events</h1><p class="muted">Create and manage your events.</p></div>
+    <a class="btn btn-rd" asp-action="Create">New event</a>
+</div>
+
+@if (Model.Count == 0)
+{
+    <div class="empty-inline">No events yet. Create your first one.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="rd-table">
+            <thead><tr><th></th><th>Event</th><th>Date</th><th>Type</th><th>Distance</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var e in Model)
+                {
+                    <tr>
+                        <td>
+                            @if (!string.IsNullOrEmpty(e.BannerUrl)) { <img class="thumb" src="@e.BannerUrl" alt="" /> }
+                            else { <div class="thumb-empty"></div> }
+                        </td>
+                        <td class="name-cell">@e.Name<div class="muted small">@e.Location</div></td>
+                        <td>@Format.Date(e.EventDate)</td>
+                        <td>@e.EventType</td>
+                        <td>@Format.Km(e.Distance)</td>
+                        <td><partial name="_Status" model="e.Status" /></td>
+                        <td>
+                            <div class="actions">
+                                <a class="btn btn-line btn-sm" asp-action="Edit" asp-route-id="@e.Id">Edit</a>
+                                <a class="btn btn-line btn-sm" asp-controller="OrganiserCategories" asp-action="Index" asp-route-eventId="@e.Id">Categories</a>
+                                <a class="btn btn-line btn-sm" asp-controller="OrganiserEnrolments" asp-action="Index" asp-route-eventId="@e.Id">Enrolments</a>
+                                <a class="btn btn-line btn-sm" asp-controller="OrganiserResults" asp-action="Index" asp-route-eventId="@e.Id">Results</a>
+                                <form asp-action="Delete" asp-route-id="@e.Id" method="post" data-confirm="Delete '@e.Name'? This can't be undone.">
+                                    <button class="btn btn-danger-line btn-sm">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

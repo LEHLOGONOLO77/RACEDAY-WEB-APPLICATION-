@@ -1,0 +1,89 @@
+@model ResultsEntryVm
+@{ ViewData["Title"] = "Results"; var eventId = Model.Event.Id; }
+
+<a class="back" asp-controller="OrganiserEvents" asp-action="Index">← Events</a>
+<div class="page-head">
+    <div>
+        <h1>Results</h1>
+        <p class="muted">@Model.Event.Name · @Format.Date(Model.Event.EventDate) · <partial name="_Status" model="Model.Event.Status" /></p>
+    </div>
+    <div class="d-flex gap-2">
+        <a class="btn btn-line btn-sm" asp-controller="OrganiserEnrolments" asp-action="Index" asp-route-eventId="@eventId">Enrolments</a>
+        @if (Model.Event.Status != "Completed")
+        {
+            <form asp-action="Complete" asp-route-eventId="@eventId" method="post" data-confirm="Mark this event as completed?">
+                <button class="btn btn-line btn-sm">Mark event completed</button>
+            </form>
+        }
+    </div>
+</div>
+
+<h2 style="margin-top:0">Enter results</h2>
+@if (Model.Awaiting.Count == 0)
+{
+    <div class="empty-inline">Everyone enrolled has a result, or nobody is enrolled yet.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="rd-table">
+            <thead><tr><th>Participant</th><th>Category</th><th>Bib</th><th>Position</th><th>Finish time (hh:mm:ss)</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var r in Model.Awaiting)
+                {
+                    var formId = $"add-{r.Id}";
+                    <tr>
+                        <td class="name-cell">
+                            <form id="@formId" asp-action="Add" asp-route-eventId="@eventId" method="post"></form>
+                            <input form="@formId" type="hidden" name="participantId" value="@r.ParticipantId" />
+                            <input form="@formId" type="hidden" name="eventCategoryId" value="@r.EventCategoryId" />
+                            @r.ParticipantName
+                        </td>
+                        <td>@r.CategoryName</td>
+                        <td>@(r.BibNumber?.ToString() ?? "–")</td>
+                        <td><input form="@formId" name="position" type="number" min="1" class="form-control inline-input w-sm" required aria-label="Position" /></td>
+                        <td><input form="@formId" name="finishTime" class="form-control inline-input w-sm" placeholder="00:45:30" pattern="\d{1,2}:\d{2}:\d{2}" required aria-label="Finish time" /></td>
+                        <td><div class="actions"><button form="@formId" class="btn btn-rd btn-sm">Publish</button></div></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<h2>Published results</h2>
+@if (Model.Published.Count == 0)
+{
+    <div class="empty-inline">No results published yet.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="rd-table">
+            <thead><tr><th>Category</th><th>Participant</th><th>Position</th><th>Finish time</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var r in Model.Published.OrderBy(x => x.CategoryName).ThenBy(x => x.Position))
+                {
+                    var formId = $"res-{r.Id}";
+                    <tr>
+                        <td>@r.CategoryName</td>
+                        <td class="name-cell">
+                            <form id="@formId" asp-action="Save" asp-route-eventId="@eventId" asp-route-id="@r.Id" method="post"></form>
+                            @r.ParticipantName
+                        </td>
+                        <td><input form="@formId" name="position" type="number" min="1" value="@r.Position" class="form-control inline-input w-sm" required aria-label="Position" /></td>
+                        <td><input form="@formId" name="finishTime" value="@Format.Time(r.FinishTime)" class="form-control inline-input w-sm" pattern="\d{1,2}:\d{2}:\d{2}" required aria-label="Finish time" /></td>
+                        <td>
+                            <div class="actions">
+                                <button form="@formId" class="btn btn-line btn-sm">Save</button>
+                                <form asp-action="Delete" asp-route-eventId="@eventId" asp-route-id="@r.Id" method="post" data-confirm="Remove this result?">
+                                    <button class="btn btn-danger-line btn-sm">Remove</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

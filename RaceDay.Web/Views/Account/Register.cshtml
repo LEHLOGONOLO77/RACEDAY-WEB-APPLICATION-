@@ -1,0 +1,29 @@
+@model RegisterVm
+@{ ViewData["Title"] = "Sign up"; }
+<div class="auth">
+    <h1>Create your account</h1>
+    <p class="muted">Pick how you'll use RaceDay.</p>
+    <form asp-action="Register" method="post" novalidate>
+        <div asp-validation-summary="ModelOnly" class="rd-alert rd-alert-err"></div>
+        <div class="segment" role="radiogroup">
+            <label><input type="radio" asp-for="Role" value="Participant" /><span>I want to race</span></label>
+            <label><input type="radio" asp-for="Role" value="Organiser" /><span>I organise events</span></label>
+        </div>
+        <span asp-validation-for="Role" class="field-err"></span>
+        <div class="row g-3 mt-1">
+            <div class="col-6 field"><label asp-for="Name"></label><input asp-for="Name" class="form-control" /><span asp-validation-for="Name" class="field-err"></span></div>
+            <div class="col-6 field"><label asp-for="Surname"></label><input asp-for="Surname" class="form-control" /><span asp-validation-for="Surname" class="field-err"></span></div>
+        </div>
+        <div class="field"><label asp-for="Email"></label><input asp-for="Email" class="form-control" autocomplete="email" /><span asp-validation-for="Email" class="field-err"></span></div>
+        <div class="field"><label asp-for="Phone"></label><input asp-for="Phone" class="form-control" type="tel" /><span asp-validation-for="Phone" class="field-err"></span></div>
+        <div class="field" data-participant-only>
+            <label asp-for="DateOfBirth"></label>
+            <input asp-for="DateOfBirth" class="form-control" type="date" asp-format="{0:yyyy-MM-dd}" max="@DateTime.Today.ToString("yyyy-MM-dd")" />
+            <span asp-validation-for="DateOfBirth" class="field-err"></span>
+        </div>
+        <div class="field"><label asp-for="Password"></label><input asp-for="Password" class="form-control" autocomplete="new-password" /><span asp-validation-for="Password" class="field-err"></span></div>
+        <div class="field"><label asp-for="ConfirmPassword"></label><input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" /><span asp-validation-for="ConfirmPassword" class="field-err"></span></div>
+        <button class="btn btn-rd w-100">Sign up</button>
+    </form>
+    <p class="muted center">Already registered? <a asp-action="Login">Log in</a></p>
+</div>

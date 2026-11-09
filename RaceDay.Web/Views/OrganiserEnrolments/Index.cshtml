@@ -1,0 +1,59 @@
+@model EnrolmentsVm
+@{ ViewData["Title"] = "Enrolments"; var eventId = Model.Event.Id; }
+
+<a class="back" asp-controller="OrganiserEvents" asp-action="Index">← Events</a>
+<div class="page-head">
+    <div><h1>Enrolments</h1><p class="muted">@Model.Event.Name · @Format.Date(Model.Event.EventDate)</p></div>
+    <div class="d-flex gap-2">
+        <a class="btn btn-line btn-sm" asp-controller="OrganiserCategories" asp-action="Index" asp-route-eventId="@eventId">Categories</a>
+        <a class="btn btn-line btn-sm" asp-controller="OrganiserResults" asp-action="Index" asp-route-eventId="@eventId">Results</a>
+    </div>
+</div>
+
+@if (Model.Registrations.Count == 0)
+{
+    <div class="empty-inline">Nobody has enrolled yet.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="rd-table">
+            <thead><tr><th>Participant</th><th>Category</th><th>Enrolled</th><th>Status</th><th>Payment</th><th>Bib</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var r in Model.Registrations)
+                {
+                    var cancelled = r.RegistrationStatus == "Cancelled";
+                    <tr>
+                        <td class="name-cell">@r.ParticipantName</td>
+                        <td>@r.CategoryName</td>
+                        <td>@Format.Date(r.RegistrationDate)</td>
+                        <td><partial name="_Status" model="r.RegistrationStatus" /></td>
+                        <td><partial name="_Status" model="r.PaymentStatus" /></td>
+                        <td>@(r.BibNumber?.ToString() ?? "–")</td>
+                        <td>
+                            @if (!cancelled)
+                            {
+                                <div class="actions">
+                                    @if (r.RegistrationStatus == "Pending")
+                                    {
+                                        <form asp-action="Confirm" asp-route-eventId="@eventId" asp-route-id="@r.Id" method="post">
+                                            <input type="hidden" name="paymentStatus" value="@r.PaymentStatus" />
+                                            <button class="btn btn-line btn-sm">Confirm</button>
+                                        </form>
+                                    }
+                                    @if (r.PaymentStatus == "Paid")
+                                    {
+                                        <form asp-action="Bib" asp-route-eventId="@eventId" asp-route-id="@r.Id" method="post" class="d-flex gap-1">
+                                            <input name="bibNumber" type="number" min="1" max="99999" value="@r.BibNumber" class="form-control inline-input w-sm" placeholder="Bib" aria-label="Bib number" />
+                                            <button class="btn btn-line btn-sm">Set</button>
+                                        </form>
+                                    }
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

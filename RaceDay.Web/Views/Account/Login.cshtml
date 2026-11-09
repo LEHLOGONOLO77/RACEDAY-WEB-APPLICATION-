@@ -1,0 +1,22 @@
+@model LoginVm
+@{ ViewData["Title"] = "Log in"; }
+<div class="auth">
+    <h1>Welcome back</h1>
+    <p class="muted">Log in to enrol, track results or manage your events.</p>
+    <form asp-action="Login" method="post" novalidate>
+        <div asp-validation-summary="ModelOnly" class="rd-alert rd-alert-err"></div>
+        <input type="hidden" asp-for="ReturnUrl" />
+        <div class="field">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" autocomplete="email" autofocus />
+            <span asp-validation-for="Email" class="field-err"></span>
+        </div>
+        <div class="field">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" autocomplete="current-password" />
+            <span asp-validation-for="Password" class="field-err"></span>
+        </div>
+        <button class="btn btn-rd w-100">Log in</button>
+    </form>
+    <p class="muted center">New to RaceDay? <a asp-action="Register">Create an account</a></p>
+</div>

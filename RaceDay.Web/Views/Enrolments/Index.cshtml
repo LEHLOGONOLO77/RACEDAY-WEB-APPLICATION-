@@ -1,0 +1,51 @@
+@model List<RegistrationModel>
+@{ ViewData["Title"] = "My enrolments"; }
+
+<div class="page-head">
+    <div>
+        <h1>My enrolments</h1>
+        <p class="muted">Every event you've signed up for.</p>
+    </div>
+    <a class="btn btn-line" asp-controller="Home" asp-action="Index">Browse events</a>
+</div>
+
+@if (Model.Count == 0)
+{
+    <div class="empty-inline">You haven't enrolled in anything yet.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="rd-table">
+            <thead>
+                <tr><th>Event</th><th>Category</th><th>Enrolled</th><th>Status</th><th>Payment</th><th>Bib</th><th></th></tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    var cancelled = r.RegistrationStatus == "Cancelled";
+                    <tr>
+                        <td class="name-cell"><a asp-controller="Events" asp-action="Details" asp-route-id="@r.EventId">@r.EventName</a></td>
+                        <td>@r.CategoryName</td>
+                        <td>@Format.Date(r.RegistrationDate)</td>
+                        <td><partial name="_Status" model="r.RegistrationStatus" /></td>
+                        <td><partial name="_Status" model="r.PaymentStatus" /></td>
+                        <td>@(r.BibNumber?.ToString() ?? "–")</td>
+                        <td>
+                            @if (!cancelled)
+                            {
+                                <div class="actions">
+                                    @if (r.PaymentStatus == "Pending")
+                                    {
+                                        <form asp-action="Pay" asp-route-id="@r.Id" method="post"><button class="btn btn-rd btn-sm">Pay now</button></form>
+                                    }
+                                    <form asp-action="Cancel" asp-route-id="@r.Id" method="post" data-confirm="Cancel this enrolment?"><button class="btn btn-danger-line btn-sm">Cancel</button></form>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

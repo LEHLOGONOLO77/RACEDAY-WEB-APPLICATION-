@@ -1,0 +1,18 @@
+@model EventModel
+<a class="ev-card" asp-controller="Events" asp-action="Details" asp-route-id="@Model.Id">
+    <div class="ev-banner @(string.IsNullOrEmpty(Model.BannerUrl) ? "ev-banner-empty" : "")">
+        @if (!string.IsNullOrEmpty(Model.BannerUrl))
+        {
+            <img src="@Model.BannerUrl" alt="" loading="lazy" />
+        }
+        else
+        {
+            <span>@Model.EventType</span>
+        }
+    </div>
+    <div class="ev-body">
+        <div class="ev-meta"><span>@Model.EventType</span><span>@Format.Km(Model.Distance)</span><partial name="_Status" model="Model.Status" /></div>
+        <h3>@Model.Name</h3>
+        <p class="muted">@Format.Date(Model.EventDate) · @Model.Location</p>
+    </div>
+</a>

@@ -1,0 +1,45 @@
+@model ProfileVm
+@{
+    ViewData["Title"] = "Profile";
+    var initial = string.IsNullOrEmpty(Model.Name) ? "?" : Model.Name[..1].ToUpper();
+}
+
+<div class="page-head"><div><h1>Profile</h1><p class="muted">Your details and photo.</p></div></div>
+
+<div class="profile-grid">
+    <div>
+        @if (!string.IsNullOrEmpty(Model.ProfilePictureUrl))
+        {
+            <img class="avatar" src="@Model.ProfilePictureUrl" alt="Your profile picture" />
+        }
+        else
+        {
+            <div class="avatar-empty">@initial</div>
+        }
+        <form asp-action="Picture" method="post" enctype="multipart/form-data">
+            <div class="field">
+                <label for="file">Profile picture</label>
+                <input id="file" name="file" type="file" class="form-control" accept="image/jpeg,image/png,image/webp" required />
+                <span class="muted small">JPG, PNG or WebP, up to 5 MB.</span>
+            </div>
+            <button class="btn btn-line btn-sm">Upload picture</button>
+        </form>
+    </div>
+
+    <form asp-action="Update" method="post" novalidate>
+        <div asp-validation-summary="ModelOnly" class="rd-alert rd-alert-err"></div>
+        <input type="hidden" asp-for="ProfilePictureUrl" />
+        <div class="row g-3">
+            <div class="col-md-6 field"><label asp-for="Name"></label><input asp-for="Name" class="form-control" /><span asp-validation-for="Name" class="field-err"></span></div>
+            <div class="col-md-6 field"><label asp-for="Surname"></label><input asp-for="Surname" class="form-control" /><span asp-validation-for="Surname" class="field-err"></span></div>
+        </div>
+        <div class="field"><label asp-for="Email"></label><input asp-for="Email" class="form-control" /><span asp-validation-for="Email" class="field-err"></span></div>
+        <div class="field"><label asp-for="Phone"></label><input asp-for="Phone" type="tel" class="form-control" /><span asp-validation-for="Phone" class="field-err"></span></div>
+        <div class="field">
+            <label asp-for="DateOfBirth"></label>
+            <input asp-for="DateOfBirth" type="date" asp-format="{0:yyyy-MM-dd}" max="@DateTime.Today.ToString("yyyy-MM-dd")" class="form-control" />
+            <span asp-validation-for="DateOfBirth" class="field-err"></span>
+        </div>
+        <button class="btn btn-rd">Save changes</button>
+    </form>
+</div>

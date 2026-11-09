@@ -1,0 +1,36 @@
+@model List<MyResultRow>
+@{ ViewData["Title"] = "My results"; }
+
+<div class="page-head">
+    <div>
+        <h1>My results</h1>
+        <p class="muted">Your race history across completed events.</p>
+    </div>
+</div>
+
+@if (Model.Count == 0)
+{
+    <div class="empty-inline">No results yet. They appear here once an organiser publishes them.</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="rd-table">
+            <thead>
+                <tr><th>Event</th><th>Date</th><th>Category</th><th>Finish time</th><th>Position</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var row in Model)
+                {
+                    <tr>
+                        <td class="name-cell"><a asp-controller="Events" asp-action="Details" asp-route-id="@row.Result.EventId">@row.Result.EventName</a></td>
+                        <td>@(row.EventDate == default ? "–" : Format.Date(row.EventDate))</td>
+                        <td>@row.Result.CategoryName</td>
+                        <td>@Format.Time(row.Result.FinishTime)</td>
+                        <td class="pos">@Format.Ordinal(row.Result.Position) <small>of @row.Finishers finishers</small></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
